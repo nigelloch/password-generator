@@ -52,6 +52,7 @@ header {
 
 .card-body {
   min-height: 100px;
+  justify-content: center;
 }
 
 .card-footer {
@@ -116,6 +117,7 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+  justify-content: center;
 }
 
 @media (max-width: 690px) {
@@ -127,6 +129,7 @@ button[disabled] {
 
   #password {
     font-size: 1rem;
+    justify-content: center;
   }
 }
 

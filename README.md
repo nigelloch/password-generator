@@ -1,11 +1,7 @@
 # Password Generator Starter Code
 
-Clone the starter code (Links to an external site.).
+Unfortunately, there are a few known issues that I have yet to fix. I hope to submit this again with the issues resolved.
 
-Modify the code to meet the Acceptance Criteria.
+-The alert "You must choose a criteria!" does not appear
+-The text box needs to be revised to have a better appearance
 
-Ensure that your work meets the full list of grading requirements below.
-
-Reach out to your classmates and instructional support team for help if you need it.
-
-Follow the submission instructions.

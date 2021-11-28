@@ -10,14 +10,10 @@ var confirmNumber;
 var confirmUppercase;
 var confirmLowercase;
 var confirmSpecialCharacter;
-var confirm;
+var confirmation;
 
 var selection;
-
-
-// var randomstring = Math.random().toString(36).slice(-12);
-// console.log(randomstring);
-        
+      
 
 
 // Get references to the #generate element
@@ -29,19 +25,20 @@ var generateBtn = document.querySelector("#generate");
 var get = document.querySelector("#generate");
 
 get.addEventListener("click", function () {
-    ps = generatePassword();
-    document.getElementById("password").placeholder = pass;
+    pass = generatePassword();
+    document.getElementById("createdPassword").placeholder = pass;
 });
 
 
 function generatePassword() {
 
-  confirm = parseInt(prompt("How many characters would you like your password to be? It must be between 8 and 128 characters."));
+  confirmation = parseInt(prompt("How many characters would you like your password to be? It must be between 8 and 128 characters."));
 
-  if (!confirm) {
+  if (!confirmation) {
     alert("Please enter a value");
-  } else if (confirm < 8 || confirm > 128) {
-    confirm = parseInt(prompt("Character amount must be between 8 and 128. Try again."));
+  } else if (confirmation < 8 || confirmation > 128) {
+    
+    confirmation = parseInt(prompt("Character amount must be between 8 and 128. Try again."));
   
   } else {
     
@@ -58,7 +55,7 @@ function generatePassword() {
       selection = alert("You must choose a criteria!")
     }
     // if using all options
-    else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
+    else if (confirmSpecialCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
       
       selection = symbolCharcodes.concat(numberCharcodes, lowercaseCharcodes, uppercaseCharcodes);
     }
@@ -75,9 +72,12 @@ function generatePassword() {
     else if (confirmSpecialCharacter && confirmLowercase && confirmUppercase) {
       selection = symbolCharcodes.concat(lowercaseCharcodes, uppercaseCharcodes);
     }
-    // if using 2 selection
+    // if using 2 options
     else if (confirmNumber && confirmSpecialCharacter) {
       selection = numberCharcodes.concat(symbolCharcodes);
+    }
+    else if (confirmLowercase && confirmSpecialCharacter) {
+      selection = lowercaseCharcodes.concat(symbolCharcodes);
     }
     else if (confirmNumber && confirmLowercase) {
       selection = numberCharcodes.concat(lowercaseCharcodes);
@@ -109,9 +109,9 @@ function generatePassword() {
     var createdPassword = [];
 
     // randomization of password
-    for (let i = 0; i < confirm; i++) {
-      var selections = selection[Math.floor(Math.random() * selection.length)]
-      passwordCharacters.push(selections);
+    for (let i = 0; i < confirmation; i++) {
+      var varSelection = selection[Math.floor(Math.random() * selection.length)]
+      createdPassword.push(varSelection);
     }
     var pass = createdPassword.join("");
     UserInput(pass);
@@ -119,12 +119,12 @@ function generatePassword() {
 }
 
 
-function UserInput(ps) {
+function UserInput(pass) {
   document.getElementById("createdPassword").textContent = pass;
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
 
 
 
